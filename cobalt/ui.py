@@ -1,6 +1,7 @@
-"""
-User interface and display utilities
-"""
+"""User interface and display utilities"""
+
+import sys
+import os
 
 
 class Colors:
@@ -30,7 +31,7 @@ LOGO = """
     ║     ╚═════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝               ║
     ║                                                               ║
     ║              AI-Powered Coding Agent (Local)                  ║
-    ║              Version 1.0.0 - Python Edition                   ║
+    ║                      Version 1.0.0                            ║
     ║                                                               ║
     ╚═══════════════════════════════════════════════════════════════╝
 """
@@ -39,14 +40,24 @@ LOGO = """
 class UI:
     """UI utilities for displaying formatted output"""
     
-    def __init__(self, use_color: bool = True):
+    def __init__(self, use_color: bool = None):
         """
         Initialize UI
         
         Args:
-            use_color: Enable ANSI color codes
+            use_color: Enable ANSI color codes (auto-detect if None)
         """
-        self.use_color = use_color
+        if use_color is None:
+            # Auto-detect: disable colors in basic Windows cmd/PowerShell
+            # Enable if running in VS Code, Windows Terminal, or with ANSICON
+            self.use_color = (
+                os.environ.get('TERM_PROGRAM') == 'vscode' or  # VS Code
+                os.environ.get('WT_SESSION') is not None or    # Windows Terminal
+                os.environ.get('ANSICON') is not None or        # ANSICON
+                sys.platform != 'win32'                         # Not Windows
+            )
+        else:
+            self.use_color = use_color
     
     def _colorize(self, text: str, color: str) -> str:
         """Apply color to text if enabled"""
