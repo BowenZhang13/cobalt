@@ -1,19 +1,19 @@
-# 🤖 Cobalt - Autonomous AI Coding Agent
+# Cobalt - Autonomous AI Coding Agent
 
 An intelligent coding assistant that autonomously creates files, runs commands, and completes multi-step tasks through natural language conversations with LM Studio or Ollama.
 
-## ✨ Features
+## Features
 
-- **🔥 Autonomous Tool Calling** - AI decides what files to create and commands to run
-- **💬 Multi-Turn Conversations** - Agent keeps working until task is complete
-- **✅ User Confirmation** - Review and approve each action before execution
-- **🔧 File Operations** - Create, read, write, and manage files
-- **⚡ Command Execution** - Run terminal commands, compile code, execute scripts
-- **🧠 LM Studio Integration** - Works with local LLMs via LiteLLM
-- **🎯 Smart Parsing** - Handles multiple response formats from different models
-- **🔄 Error Recovery** - Tries different approaches when commands fail
+- **Autonomous Tool Calling** - AI decides what files to create and commands to run
+- **Multi-Turn Conversations** - Agent keeps working until task is complete
+- **User Confirmation** - Review and approve each action before execution
+- **File Operations** - Create, read, write, and manage files
+- **Command Execution** - Run terminal commands, compile code, execute scripts
+- **LM Studio Integration** - Works with local LLMs via LiteLLM
+- **Smart Parsing** - Handles multiple response formats from different models
+- **Error Recovery** - Tries different approaches when commands fail
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -33,7 +33,7 @@ pip install litellm requests
 python main.py
 ```
 
-## 📖 Usage
+## Usage
 
 ### Basic Commands
 
@@ -79,11 +79,13 @@ Add 2+3: 5
 Subtract 5-1: 4
 ```
 
-## 🛠️ Available Tools
+## Available Tools
 
 ### Autonomous Tools (Require Confirmation)
 - **create_file** - AI creates files with self-chosen names
 - **write_file** - Modify existing files
+- **create_directory** Creates a folder
+- **delete directory** Deletes a folder
 - **run_command** - Execute terminal commands
 
 ### Information Tools (Auto-execute)
@@ -94,7 +96,7 @@ Subtract 5-1: 4
 - **get_tree** - Directory tree view
 - **file_info** - File metadata
 
-## 🎯 How It Works
+## How It Works
 
 1. **You give a task** - "create a web scraper and run it"
 2. **AI plans actions** - Decides to create file, then run command
@@ -102,7 +104,7 @@ Subtract 5-1: 4
 4. **Agent continues** - Keeps going until task complete
 5. **Multi-turn conversation** - AI adapts based on results
 
-## 🔧 Configuration
+## Configuration
 
 ### Command Line Options
 
@@ -131,7 +133,7 @@ cobalt> model llama       # Change model
 cobalt> model             # List available models
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 cobalt/
@@ -148,7 +150,7 @@ cobalt/
 └── README.md            # This file
 ```
 
-## 🎨 Features in Detail
+## Features in Detail
 
 ### Multi-Turn Conversations
 
@@ -169,13 +171,13 @@ When something fails, the agent tries alternatives:
 
 ```
 Turn 1: Tries g++ main.cpp -o main
-        ❌ Failed: g++ not found
+        Failed: g++ not found
         
 Turn 2: Tries cl.exe main.cpp
-        ❌ Failed: cl.exe not found
+        Failed: cl.exe not found
         
 Turn 3: Suggests installing MinGW
-        ✅ Success!
+        Success!
 ```
 
 ### Cross-Platform Support
@@ -185,14 +187,14 @@ Works on Windows, Linux, and macOS:
 - Uses appropriate commands (python vs python3, .exe vs no extension)
 - Handles path differences
 
-## 🔒 Security
+## Security
 
 - **User confirmation** required for all file creation and command execution
 - **Safe mode** available to restrict command execution
 - **Private workspace** - operates only in specified directory
 - **View before execute** - [v] option to see full file content
 
-## 🤝 Contributing
+## Contributing
 
 This is a private repository. If you have access and want to contribute:
 
@@ -208,7 +210,7 @@ This is a private repository. If you have access and want to contribute:
 - litellm
 - requests
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### AI doesn't generate tool calls
 
@@ -227,14 +229,14 @@ This is a private repository. If you have access and want to contribute:
 - Use smaller models for faster responses
 - Enable GPU acceleration in LM Studio
 
-## 📊 Performance
+## Performance
 
 - **Startup**: < 100ms
 - **LLM Response**: 2-5 seconds (model dependent)
 - **File Operations**: < 50ms
 - **Command Execution**: Varies by command
 
-## 🎯 Use Cases
+## Use Cases
 
 - **Quick Scripts**: "create a script that renames all .txt files"
 - **Learning**: "create a simple neural network and train it"
@@ -242,11 +244,11 @@ This is a private repository. If you have access and want to contribute:
 - **Code Generation**: "generate test cases for this function"
 - **Automation**: "create a backup script that runs daily"
 
-## 📜 License
+## License
 
 MIT License - See LICENSE file
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - LiteLLM for unified LLM API
 - LM Studio for local model serving
